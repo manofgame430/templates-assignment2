@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+        <meta name="view-port" content="width=device-width, initial-scale=1.0">
+        <title>Leadership Project</title>
+        <body>
+            <h3>Leadership Teams</h3>
+            {%for team in teams%}
+            <a href="{% url 'Leadership_team' team %}">{{team}}</a>
+            {%endfor%}
+        </body>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

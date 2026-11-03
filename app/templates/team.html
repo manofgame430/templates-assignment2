@@ -1,15 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Leadership Project</title>
-        <p>{{team}}</p>
-        <h2>{{teams[team]["description"]}}</h2>
-        <body>
-            <h1>Here are our team members for the {{request.resolve_match.url_name}} team</h1>
-            {%for member in teams[request.resolve_match.url_name]["members"]%}
-            {{member}}
-            {%endfor%}
-        </body>
-    </head>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{id}}</h1>
+    {% if id == "procurement" %}
+        {{teams.procurement.description}}
+        <h2>Here are the members of the team:</h2>
+        {% for member in teams.procurement.members %}
+            <li>{{member}}</li>
+        {%endfor%}
+    {% elif id == "management" %}
+        {{teams.management.description}}
+        <h2>Here are the members of the team:</h2>
+        {% for member in teams.management.members %}
+            <li>{{member}}</li>
+        {%endfor%}
+    {% elif id == "community" %}
+        {{teams.community.description}}
+        <h2>Here are the members of the team:</h2>
+        {% for member in teams.community.members %}
+            <li>{{member}}</li>
+        {%endfor%}
+    {% elif id == "documentation" %}
+        {{teams.documentation.description}}
+        <h2>Here are the members of the team:</h2>
+        {% for member in teams.documentation.members %}
+            <li>{{member}}</li>
+        {%endfor%}
+    {%endif%}
+{% endblock %}

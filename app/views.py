@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 
-leadership = {"team": ["procurment", "management", "community", "documentation"],
+leadership = {"team": ["procurement", "management", "community", "documentation"],
               "teams": {
                   "procurement": {
                       "description": "The procurment team is in charge of working within a limited budget in order to create fulfilling and nutritous meals that adhere to everyones dietery needs and restrictions.",
@@ -25,13 +25,13 @@ leadership = {"team": ["procurment", "management", "community", "documentation"]
 # Create your views here.
 def home_view(request:HttpRequest)->HttpResponse:
     context = {"teams": leadership["team"]}
-    return render(request, 'home.html', context)
+    return render(request, 'base.html', context)
 
 
-def team_view(request:HttpRequest)->HttpRequest:
+def team_view(request:HttpRequest, team)->HttpRequest:
     context = {"teams": leadership["teams"], 
                "team": leadership["team"],
-               "id": 'house'}
+               "id": team}
     return render(request, 'team.html', context)
 
 
