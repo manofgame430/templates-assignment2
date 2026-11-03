@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Leadership Project</title>
+        <p>{{team}}</p>
+        <h2>{{teams[team]["description"]}}</h2>
+        <body>
+            <h1>Here are our team members for the {{request.resolve_match.url_name}} team</h1>
+            {%for member in teams[request.resolve_match.url_name]["members"]%}
+            {{member}}
+            {%endfor%}
+        </body>
+    </head>
+</html>
